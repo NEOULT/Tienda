@@ -1,0 +1,194 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "Admin123!!!",
+      "email": "admin@example.com",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "User123!",
+      "email": "user1@example.com",
+      "role": "user"
+    },
+    {
+      "id": "49ff",
+      "username": "Juancu0805",
+      "password": "Juancu0805*",
+      "role": "admin"
+    },
+    {
+      "id": "1c23",
+      "username": "NuevoUsuario",
+      "password": "NuevoUsuario**1",
+      "role": "user"
+    },
+    {
+      "id": "4f54",
+      "username": "Juancu0806",
+      "password": "Juancu0806*",
+      "role": "user"
+    },
+    {
+      "id": "9033",
+      "username": "JuancuNormal",
+      "password": "Juancu0805*",
+      "role": "user"
+    }
+  ],
+  "products": [
+    {
+      "id": "781b",
+      "title": "sdf",
+      "price": 5,
+      "quantity": 8,
+      "categoryId": 2,
+      "description": "5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa5dsa",
+      "image": "https://res.cloudinary.com/dwsenpnue/image/upload/v1744055649/eif0ibtf3vjsyzsgjhgc.jpg",
+      "supplierId": 1,
+      "createdAt": "2025-04-07T19:54:10.935Z"
+    },
+    {
+      "id": "68c3",
+      "title": "pepitos",
+      "price": 8,
+      "quantity": 12,
+      "categoryId": 1,
+      "description": "aslkdkl",
+      "image": "https://res.cloudinary.com/dwsenpnue/image/upload/v1744055688/pmhlwwkg9ctgozkhu1s7.png",
+      "supplierId": 1,
+      "createdAt": "2025-04-07T19:54:48.056Z"
+    },
+    {
+      "id": "cfb6",
+      "title": "Reloj Rolexo",
+      "price": 500,
+      "quantity": 5,
+      "categoryId": 4,
+      "description": "reloj de marca",
+      "image": "https://res.cloudinary.com/dwsenpnue/image/upload/v1744074977/wctazeuomkyintlnixhx.jpg",
+      "supplierId": 1,
+      "createdAt": "2025-04-08T01:16:16.563Z"
+    },
+    {
+      "id": "6bd3",
+      "title": "doritos",
+      "price": 1.5,
+      "quantity": 9,
+      "categoryId": "3",
+      "description": "Los mejores que hay",
+      "image": "https://res.cloudinary.com/dwsenpnue/image/upload/v1744124251/jnkjmydiwhmgoj80uck9.png",
+      "supplierId": 1,
+      "createdAt": "2025-04-08T14:57:31.522Z"
+    },
+    {
+      "id": "73f8",
+      "title": "pepe",
+      "price": 5,
+      "quantity": 4,
+      "categoryId": "2",
+      "description": "asdn",
+      "image": "https://res.cloudinary.com/dwsenpnue/image/upload/v1744131711/o0hogvcfxsz2xn3svjog.jpg",
+      "supplierId": 1,
+      "createdAt": "2025-04-08T17:01:51.800Z"
+    },
+    {
+      "id": "8672",
+      "title": "askjdbsjk",
+      "price": 54,
+      "quantity": 30,
+      "categoryId": "1",
+      "description": "asd",
+      "image": "https://res.cloudinary.com/dwsenpnue/image/upload/v1744131727/tblyocxw3w1matetibwb.jpg",
+      "supplierId": 1,
+      "createdAt": "2025-04-08T17:02:06.913Z"
+    },
+    {
+      "id": "d42c",
+      "title": "asdasd",
+      "price": 54,
+      "quantity": 11,
+      "categoryId": "1",
+      "description": "asd",
+      "image": "https://res.cloudinary.com/dwsenpnue/image/upload/v1744131747/wkqfnu1sju4hgvgc1os5.jpg",
+      "supplierId": 1,
+      "createdAt": "2025-04-08T17:02:27.103Z"
+    },
+    {
+      "id": "edb7",
+      "title": "doritos",
+      "price": 100,
+      "quantity": 89,
+      "categoryId": "3",
+      "description": "Los mejores del mundo",
+      "image": "https://res.cloudinary.com/dwsenpnue/image/upload/v1744335712/odwiy8rslidxlmpxmzn6.png",
+      "supplierId": 1,
+      "createdAt": "2025-04-11T01:41:53.127Z"
+    },
+    {
+      "id": "7f52",
+      "title": "Goku",
+      "price": 33,
+      "quantity": 0,
+      "categoryId": "5",
+      "description": "El mejor del mundo",
+      "image": "https://res.cloudinary.com/dwsenpnue/image/upload/v1744590114/rfm9d1z76owqhjs5ruys.png",
+      "supplierId": 1,
+      "createdAt": "2025-04-14T00:21:53.852Z"
+    }
+  ],
+  "cart": [
+    {
+      "id": "4daf",
+      "userId": "49ff",
+      "products": [],
+      "totalPrice": 0
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "1",
+      "name": "Proveedor 1",
+      "contact": "contacto1@example.com",
+      "phone": "123456789",
+      "address": "Calle Falsa 123, Ciudad 1"
+    },
+    {
+      "id": "2",
+      "name": "Proveedor 2",
+      "contact": "contacto2@example.com",
+      "phone": "987654321",
+      "address": "Calle Verdadera 456, Ciudad 2"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electrónica",
+      "description": "Productos relacionados con dispositivos electrónicos y tecnología."
+    },
+    {
+      "id": "2",
+      "name": "Hogar",
+      "description": "Productos para el hogar, decoración y utensilios."
+    },
+    {
+      "id": "3",
+      "name": "Alimentos",
+      "description": "Productos comestibles y alimentos procesados."
+    },
+    {
+      "id": "4",
+      "name": "Ropa",
+      "description": "Prendas de vestir y accesorios de moda."
+    },
+    {
+      "id": "5",
+      "name": "Juguetes",
+      "description": "Juguetes y productos para niños."
+    }
+  ]
+}

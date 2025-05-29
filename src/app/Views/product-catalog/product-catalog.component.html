@@ -1,0 +1,106 @@
+<div class="catalog-container">
+  <div class="filters-section">
+    <h2>Filtros</h2>
+
+    <form [formGroup]="filterForm" class="filter-form">
+      <!-- Búsqueda general -->
+      <div class="form-group">
+        <label for="search">Buscar productos</label>
+        <input
+          type="text"
+          id="search"
+          formControlName="search"
+          placeholder="Nombre del producto">
+      </div>
+
+      <!-- Filtro por categoría -->
+      <div class="form-group">
+        <label for="category">Categoría</label>
+        <select id="category" formControlName="category">
+          <option value="">Todas las categorías</option>
+          <option *ngFor="let category of categories" [value]="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Filtro por precio -->
+      <div class="form-group">
+        <label>Rango de precios</label>
+        <div class="price-range">
+          <input
+            type="number"
+            formControlName="minPrice"
+            placeholder="Mínimo"
+            min="0">
+          <span>a</span>
+          <input
+            type="number"
+            formControlName="maxPrice"
+            placeholder="Máximo">
+        </div>
+      </div>
+
+      <!-- Filtro por fecha -->
+      <div class="form-group">
+        <label>Rango de fechas</label>
+        <div class="date-range">
+          <input
+            type="date"
+            formControlName="startDate"
+            placeholder="Desde">
+          <span>a</span>
+          <input
+            type="date"
+            formControlName="endDate"
+            placeholder="Hasta">
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="reset-btn"
+        (click)="resetFilters()">
+        Limpiar filtros
+      </button>
+    </form>
+  </div>
+
+  <div class="products-section">
+    <div *ngIf="loading" class="loading">Cargando productos...</div>
+
+    <div *ngIf="!loading && displayedProducts.length === 0" class="no-results">
+      No se encontraron productos con los filtros aplicados.
+    </div>
+
+    <div class="products-grid">
+      <app-product-card
+          *ngFor="let product of displayedProducts"
+          [product]="product"
+          [showActions]="true">
+        </app-product-card>
+    </div>
+
+    <!-- Controles de paginación -->
+    <div *ngIf="totalPages > 1" class="pagination-controls">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">
+        &lt; Anterior
+      </button>
+
+      <span *ngFor="let page of getPageNumbers()"
+            (click)="goToPage(page)"
+            [class.active]="page === currentPage"
+            class="page-number">
+        {{ page }}
+      </span>
+
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+        Siguiente &gt;
+      </button>
+
+      <span class="page-info">
+        Página {{ currentPage }} de {{ totalPages }} ({{ totalItems }} productos)
+      </span>
+    </div>
+  </div>
+</div>

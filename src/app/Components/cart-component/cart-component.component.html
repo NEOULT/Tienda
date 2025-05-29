@@ -1,0 +1,72 @@
+<div class="cart-container">
+  <h2>Tu Carrito de Compras</h2>
+
+  <div *ngIf="loading" class="loading">
+    Cargando carrito...
+  </div>
+
+  <div *ngIf="!loading && cartItems.length === 0" class="empty-cart">
+    <p>Tu carrito está vacío</p>
+    <a routerLink="/products" class="btn btn-primary">Ver Productos</a>
+  </div>
+
+  <div *ngIf="!loading && cartItems.length > 0" class="cart-items">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="product-image">
+        <img [src]="item.product.image" [alt]="item.product.title">
+      </div>
+      <div class="product-info">
+        <h3>{{ item.product.title }}</h3>
+        <p class="price">${{ item.product.price | number:'1.2-2' }}</p>
+      </div>
+      <div class="quantity-controls">
+        <button (click)="updateQuantity(item.product.id, item.quantity - 1)">-</button>
+        <span>{{ item.quantity }}</span>
+        <button
+          (click)="updateQuantity(item.product.id, item.quantity + 1)"
+          [disabled]="item.quantity >= item.product.quantity">+</button>
+      </div>
+      <div class="subtotal">
+        ${{ (item.product.price * item.quantity) | number:'1.2-2' }}
+      </div>
+      <button class="remove-btn" (click)="removeItem(item.productId)">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+
+    <div class="cart-summary">
+      <h3>Resumen del Pedido</h3>
+      <div class="summary-row">
+        <span>Total:</span>
+        <span>${{ totalPrice | number:'1.2-2' }}</span>
+      </div>
+      <button class="btn btn-danger" (click)="clearCart()">Vaciar Carrito</button>
+      <a (click)="showThankYouModal()" class="btn btn-primary">Pagar</a>
+    </div>
+  </div>
+  <!-- Modal simple -->
+<div class="simple-modal" *ngIf="showModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>¡Gracias por tu compra!</h3>
+      <button (click)="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Hemos recibido tu pedido correctamente.</p>
+      <div *ngFor="let item of cartItems" class="modal-item">
+        <img [src]="item.product.image" [alt]="item.product.title">
+        <div>
+          <h4>{{ item.product.title }}</h4>
+          <p>{{ item.quantity }} × ${{ item.product.price | number:'1.2-2' }}</p>
+        </div>
+      </div>
+      <div class="modal-total">
+        <strong>Total: ${{ totalPrice | number:'1.2-2' }}</strong>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button (click)="closeModal()" class="btn">Cerrar</button>
+    </div>
+  </div>
+</div>
+</div>

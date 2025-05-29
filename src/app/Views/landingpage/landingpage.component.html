@@ -1,0 +1,107 @@
+<div class="landing-container">
+  <!-- En la barra de navegación -->
+  <header class="header">
+    <div class="logo">Mi Tienda</div>
+
+    <div class="user-actions">
+      <!-- Botón para admin -->
+      <button *ngIf="isAdmin" class="btn btn-primary me-2" (click)="openProductModal(productModal)">
+        <i class="fas fa-plus"></i> Crear Producto
+      </button>
+
+        <!-- Icono del carrito -->
+      <a (click)="navigateCart()" class="cart-icon me-3">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">{{ cartItemCount }}</span>
+      </a>
+
+      <button class="btn btn-danger" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+      </button>
+    </div>
+  </header>
+
+  <!-- Modal para crear producto -->
+  <ng-template #productModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Nuevo Producto</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form #productForm="ngForm" (ngSubmit)="onSubmitProduct(productForm)">
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" name="title" ngModel required>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Precio</label>
+            <input type="number" step="0.01" class="form-control" name="price" ngModel required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Cantidad</label>
+            <input type="number" class="form-control" name="quantity" ngModel>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Categoría</label>
+          <select class="form-select" name="categoryId" ngModel required>
+            <option value="" disabled selected>Seleccione una categoría</option>
+            <option *ngFor="let category of categories" [value]="category.id">
+              {{ category.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Imagen</label>
+          <input type="file" class="form-control" (change)="onSelectedImage($event)" accept="image/*">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Descripción</label>
+          <textarea class="form-control" rows="3" name="description" ngModel></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">
+            Guardar Producto
+          </button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+  <main class="main-content">
+    <section class="hero">
+      <h1 class="hero-title">Bienvenido a nuestra tienda</h1>
+      <p class="hero-subtitle">Descubre los mejores productos al mejor precio</p>
+      <button class="cta-button" (click)="navigateProducts()">Ver productos</button>
+    </section>
+
+    <section class="featured-products">
+      <h2 class="section-title">Productos Destacados</h2>
+      <div class="products-grid">
+        <app-product-card
+          *ngFor="let product of products"
+          [product]="product"
+          [showActions]="true">
+        </app-product-card>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Mi Tienda. Todos los derechos reservados.</p>
+    <div class="footer-links">
+      <a href="#" class="footer-link">Términos y condiciones</a>
+      <a href="#" class="footer-link">Política de privacidad</a>
+    </div>
+  </footer>
+</div>
